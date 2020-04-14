@@ -1,1 +1,1 @@
-web gunicorn Boring-tine_App/flaskApp.py:app
+web: gunicorn wsgi:app

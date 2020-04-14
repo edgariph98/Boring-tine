@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
-from Forms import MoodQuizForm
+from .Forms import MoodQuizForm
 from flask_bootstrap import Bootstrap
 
 def create_app():

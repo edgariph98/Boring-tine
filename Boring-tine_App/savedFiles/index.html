@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Boring-tine</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static',filename = 'assets/css/main.css')}}" />
+		<noscript><link rel="stylesheet" href="{{url_for('static',filename = 'assets/css/noscript.css')}}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Welcome to Boring-tine</a></li>
+							<li><a href="#About">About</a></li>
+							<li><a href="#Quiz">Activity Suggestion Quiz</a></li>
+							<li><a href="#Explore">Explore Activities</a></li>
+							<li><a href="#Activity Suggestion">Suggested Activities</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+				<section id="intro" class="wrapper style1 fullscreen fade-up">
+					<div class="inner">
+						<h1>Boring-tine</h1>
+						<p>
+							Feeling boring at home? <br>
+							Can't hit the gym?<br>
+							Is this quarantine crushing your plans? <br>
+						</p>
+						<ul class="actions">
+							<li><a class="button scrolly">Need Some Activity Suggestions?</a></li>
+							<li><a class="button scrolly"> Explore Activities!!</a></li>	
+						</ul>
+					</div>
+				</section>
+				
+
+				<section id = "Quiz" class = "wrapper style2 fullscreen fade-down">
+					<div class="inner">
+						<section>
+							<h2>Mood/Traits Quiz</h2>
+							<p>
+								Here you can take this quiz in order to give you some Suggestions on what to do
+							</p>
+								<section>
+									<form method="POST" action="">
+										<div class="fields">
+											<div class="field third">
+												{{quizForm.name.label}}
+												{% if quizForm.name.errors %}
+													{{ quizForm.name }}	
+														<div class="inner">
+															{% for error in quizForm.name.errors %}
+																<span>{{ error }}</span>
+															{% endfor %}	
+														</div>
+												{% else %}
+													{{quizForm.name}}
+												{% endif %}
+												<!-- {{quizForm.name}} -->
+											</div>
+											<div class="field third">
+												{{quizForm.age.label}}
+												{{quizForm.age}}
+											</div>
+											<div class="field third">
+												{{quizForm.mood.label}}
+												{{quizForm.mood}}
+											</div>
+											<div class="field third">
+												{{quizForm.gender.label}}
+												{{quizForm.gender}}
+											</div>
+											<div class="field third">
+												{{quizForm.interests.label}}
+												{{quizForm.interests}}
+											</div>
+										</div>
+										<ul class="actions">
+											{{quizForm.submit}}
+										</ul>
+									</form>
+								</section>
+						</section>
+					</div>
+				<section>
+				<!-- explore activities-->
+					<section id="Explore" class="wrapper style1 fade-up fullscreen">
+						<div class="inner">
+							{% with messages = get_flashed_messages(with_categories=true) %}
+								{% if messages %}
+							  		{% for category, message in messages %}
+										<div class="inner">
+								  			{{ message }}
+										</div>
+							  		{% endfor %}
+								{% endif %}
+						  	{% endwith %}
+							<h2>Discover Activities</h2>
+							<p>DIscover different types of activities you can do while inside the comfort of your home.</p>
+							<div class="features">
+								<section>
+									<h3>Music</h3>
+									<p>Discover Music that you will enjoy and will keep you going.</p>
+									<a class="button scrolly">Discover Music</a>
+								</section>
+								<section>
+									<h3>Movies/Shows</h3>
+									<p>Discover movies or shows, that can keep you entertained while inside home.</p>
+									<a class="button scrolly">Discover new Movies and Shows</a>
+								</section>
+								<section>
+									<h3>Home Workouts </h3>
+									<p>Discover fitness plans as workouts to do at home.</p>
+									<a class="button scrolly">Discover Home-Workout Plans</a>
+								</section>
+								<section>
+									<h3>Nutrition Plans</h3>
+									<p>Discover Nutrition Plans to stay Fit while inside.</p>
+									<a class="button scrolly">Discover Nutrition Plans</a>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Boring-	tine All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static',filename = 'assets/js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/jquery.scrollex.min.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/jquery.scrolly.min.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/browser.min.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/util.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/main.js')}}"></script>
+
+	</body>
+</html>

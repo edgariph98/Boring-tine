@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class = "wrapper style1 fullscreen fade-up">
+    <div class = "inner">
+        <h2>
+            Welcome to  Activity Suggestions based on your Mood Quiz
+        </h2>
+        <div class="table-responsive" id = "music table">
+            <h3>Music Suggested</h3>
+            <table class="table">
+                <thead>
+                    <th>Rank</th>
+                    <th>Song Name</th>
+                    <th>Genre</th>
+                    <th>Artist</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Congratulations</td>
+                        <td>Rap</td>
+                        <td>Post Malone</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Paper cut </td>
+                        <td>EDM</td>
+                        <td>Zedd</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Lean wit Me </td>
+                        <td> Rap</td>
+                        <td>Juice WRLD</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+        <!-- rando activities table -->
+        <div class="table-responsive" id = "random">
+            <h3>Random Activities</h3>
+            <table class="table">
+                <thead>
+                    <th>Rank</th>
+                    <th>Activity</th>
+                    <th>Cost $</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Karaoke</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Monopoly Game</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dog Walk</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <!-- Books table  -->
+        <div class="table-responsive" id = "books">
+
+            <h3>Suggested Book Readings</h3>
+            <table class="table">
+                <thead>
+                    <th>Rank</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Book Name 1</td>
+                        <td>Random Author 1 </td>
+                        <td>Horror</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Book Name 2</td>
+                        <td>Random Author 2</td>
+                        <td>Comedy</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Book Name 3</td>
+                        <td>Random Author 3</td>
+                        <td>Drama</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock content %}

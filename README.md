@@ -15,8 +15,7 @@
 
 
 - Now, type in `pip3 install -r requirements.txt`. The necessary modules will now install
-- On Windows, with powershell, execute in the Project_2 directory `$env:FLASK_APP = Boring-tine_App\flaskApp.py`. Then execute the command `flask run`
-- On Linux, execute in a terminal `export FLASK_APP=Boring-tine_App\flaskApp.py`. Then execute `flask run`
+- On Linux terminal, or Windows powershell, execute in a terminal in the folder containing the repo run `python wsgi.py`. and this will start the server.
 - Finally, to view our prototype, go to `127.0.0.1:5000` in a web browser of your choice
 
 ## Contributors

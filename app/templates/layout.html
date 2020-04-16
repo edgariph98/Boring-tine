@@ -9,6 +9,8 @@
 		<title>Boring-tine</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- audio styling -->
+		<link rel="stylesheet" href="{{url_for('static',filename = 'assets/css/audio.css')}}" />
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,12 +18,12 @@
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="{{url_for('static',filename = 'assets/css/main.css')}}" />
 		<noscript><link rel="stylesheet" href="{{url_for('static',filename = 'assets/css/noscript.css')}}" /></noscript>
+
 	</head>
-	<body class="is-preload">
+	<body class="is-preload	">
 
 		<!-- Sidebar -->
 			<section id="sidebar">
-				<div class="inner">
 					<nav>
 						<ul>
 							<li><a href="/home">Welcome to Boring-tine</a></li>
@@ -31,11 +33,32 @@
 							<li><a href="/Suggestions">Suggested Activities</a></li>
 							<li><a href="/ActivitySearch">Activity Search	</a></li>
 						</ul>
-					</nav>
+					</nav>	
+					<!-- audio player -->
+					<div class="container-fluid">
+						<div class="glow">
+							<div class="text-container">
+								<span class="responsive-font">Song Name: Name</span>
+								<br>
+								<span class="text">Author: Author</span>
+								<div class="btn-group inner responsive-width">
+									<button onclick="skip('back')" class="btn responsive-height"><i class="fas fa-arrow-circle-left"></i></button>
+									<button onclick="playpause()" class="btn"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
+									<button onclick="stop()" class="btn"><i class="fa fa-stop"></i></button>
+									<button onclick="skip('fwd')" class="btn"><i class="fas fa-arrow-circle-right"></i></button>
+								</div>
+								<div class="seekbar">
+									<br>
+									<input  type="range" oninput="setPos(this.value)" id="seek" value="0" max="">
+									<br>
+								</div>
+								<button id="mute" onclick="mute()" class="btn"><i class="fa fa-volume-up"></i></button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
-
-		<!-- Wrapper -->
+			<!-- Wrapper -->
 			<div id="wrapper">
 				{% with messages = get_flashed_messages(with_categories=true) %}
 				{% if messages %}
@@ -50,7 +73,7 @@
 				{% endwith %}
 				{% block content %}{% endblock %}
 			</div>
-
+		
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
 				<div class="inner">
@@ -68,6 +91,8 @@
 			<script src="{{url_for('static',filename = 'assets/js/breakpoints.min.js')}}"></script>
 			<script src="{{url_for('static',filename = 'assets/js/util.js')}}"></script>
 			<script src="{{url_for('static',filename = 'assets/js/main.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/audio.js')}}"></script>
+
 
 	</body>
 </html>

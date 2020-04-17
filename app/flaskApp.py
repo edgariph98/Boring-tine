@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
-from .Forms import MoodQuizForm
 from flask_bootstrap import Bootstrap
+from .modules import personality_test, MoodQuizForm, questionsValidation, getQuestions, questionData,getPersonality
 
 def create_app():
     app = Flask(__name__)
@@ -20,12 +20,19 @@ def create_app():
     #########################################
     @app.route('/MoodQuiz', methods=['GET', 'POST'])
     def moodQuizRoute():
-        quizMoodForm = MoodQuizForm()
         #validating form
+        quizMoodForm = MoodQuizForm()
         if quizMoodForm.validate_on_submit():
-            print("Quiz Form Validated")
-            flash('Quiz Submitted', 'success')
-            return redirect(url_for('Suggestions'))
+            validQuestionsResponses, error_msg = questionsValidation(quizMoodForm)
+            questions = getQuestions(quizMoodForm)
+            if not validQuestionsResponses:
+                print("Questions Not validated")
+                flash(error_msg,'danger')
+            else:
+                print("Quiz Form Validated")
+                getPersonality(*questionData(quizMoodForm))
+                flash('Quiz Submitted', 'success')
+                return redirect(url_for('Suggestions'))
         #form not validated stay in sam
         elif request.method == "POST":
             flash('Quiz not Submitted, Revise your inputs', 'danger')

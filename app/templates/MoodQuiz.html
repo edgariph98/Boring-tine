@@ -88,38 +88,149 @@
                                 {% endif %}
                             </div>
                         </div>
+
                         <h2>Personality Questions</h2>
                         <div class="fields inner">
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question1.label }} {{ form.question1(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question2.label }} {{ form.question2(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question3.label }} {{ form.question3(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question4.label }} {{ form.question4(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question5.label }} {{ form.question5(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question6.label }} {{ form.question6(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question7.label }} {{ form.question7(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question8.label }} {{ form.question8(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question9.label }} {{ form.question9(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
-                                <div class = "field half d-flex justify-content-center">
-                                    {{ form.question10.label }} {{ form.question10(rows=3, multiple=True,class="radio-inline") }}
-                                </div>
+                            <div class="field half">
+
+                                {{form.question1.label}}
+                                {% if form.question1.errors %}
+                                    {{ form.question1 }}	
+                                        <div class="inner">
+                                            {% for error in form.question1.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question1}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question2.label}}
+                                {% if form.question2.errors %}
+                                    {{ form.question2 }}	
+                                        <div class="inner">
+                                            {% for error in form.question1.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question2}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question3.label}}
+                                {% if form.question3.errors %}
+                                    {{ form.question3 }}	
+                                        <div class="inner">
+                                            {% for error in form.question3.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question3}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question4.label}}
+                                {% if form.question4.errors %}
+                                    {{ form.question4 }}	
+                                        <div class="inner">
+                                            {% for error in form.question4.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question4}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question5.label}}
+                                {% if form.question5.errors %}
+                                    {{ form.question5 }}	
+                                        <div class="inner">
+                                            {% for error in form.question5.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question5}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question6.label}}
+                                {% if form.question6.errors %}
+                                    {{ form.question6 }}	
+                                        <div class="inner">
+                                            {% for error in form.question6.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question6}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question7.label}}
+                                {% if form.question7.errors %}
+                                    {{ form.question7 }}	
+                                        <div class="inner">
+                                            {% for error in form.question7.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question7}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question8.label}}
+                                {% if form.question8.errors %}
+                                    {{ form.question8 }}	
+                                        <div class="inner">
+                                            {% for error in form.question8.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question8}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question9.label}}
+                                {% if form.question9.errors %}
+                                    {{ form.question9 }}	
+                                        <div class="inner">
+                                            {% for error in form.question9.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question9}}
+                                {% endif %}
+                            </div>
+                            <div class="field half">
+
+                                {{form.question10.label}}
+                                {% if form.question10.errors %}
+                                    {{ form.question10 }}	
+                                        <div class="inner">
+                                            {% for error in form.question10.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}	
+                                        </div>
+                                {% else %}
+                                    {{form.question10}}
+                                {% endif %}
+                            </div>
                         </div>
                         <ul class="actions">
                             {{form.submit}}

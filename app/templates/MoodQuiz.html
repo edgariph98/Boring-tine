@@ -6,90 +6,12 @@
         <section>
             <h2>Mood/Traits Quiz</h2>
             <p>
-                Here you can take this quiz in order to give you some Suggestions on what to do
+                Here you can take this quiz in order to give you some Suggestions on what to do based on your personality
             </p>
                 <section>
+                    <h2>Personality Questions</h2>
                     <form method="post" action="" novalidate    > 
                         {{ form.hidden_tag() }}
-                        <!-- {{ form.csrf_token }} -->
-                        <div class="fields">
-                            <div class="field third">
-                                {{form.name.label}}
-                                {% if form.name.errors %}
-                                    {{ form.name }}	
-                                        <div class="inner">
-                                            {% for error in form.name.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}	
-                                        </div>
-                                {% else %}
-                                    {{form.name}}
-                                {% endif %}
-                                <!-- {{form.name}} -->
-                            </div>
-                            <div class="field third">
-                                <!-- {{form.age.label}}
-                                {{form.age}} -->
-
-                                {{form.age.label}}
-                                {% if form.age.errors %}
-                                    {{ form.age }}	
-                                        <div class="inner">
-                                            {% for error in form.age.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}	
-                                        </div>
-                                {% else %}
-                                    {{form.age}}
-                                {% endif %}
-                            </div>
-                            <div class="field third">
-                                <!-- {{form.mood.label}}
-                                {{form.mood}} -->
-
-                                {{form.mood.label}}
-                                {% if form.mood.errors %}
-                                    {{ form.mood }}	
-                                        <div class="inner">
-                                            {% for error in form.mood.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}	
-                                        </div>
-                                {% else %}
-                                    {{form.mood}}
-                                {% endif %}
-                            </div>
-                            <div class="field third">
-                                <!-- {{form.gender.label}}
-                                {{form.gender}} -->
-                                {{form.gender.label}}
-                                {% if form.gender.errors %}
-                                    {{ form.gender }}	
-                                        <div class="inner">
-                                            {% for error in form.gender.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}	
-                                        </div>
-                                {% else %}
-                                    {{form.gender}}
-                                {% endif %}
-                            </div>
-                            <div class="field half">
-                                {{form.interests.label}}
-                                {% if form.interests.errors %}
-                                    {{ form.interests }}	
-                                        <div class="inner">
-                                            {% for error in form.interests.errors %}
-                                                <span>{{ error }}</span>
-                                            {% endfor %}	
-                                        </div>
-                                {% else %}
-                                    {{form.interests}}
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        <h2>Personality Questions</h2>
                         <div class="fields inner">
                             <div class="field half">
 

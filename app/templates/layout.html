@@ -21,9 +21,9 @@
 
 	</head>
 	<body class="is-preload	">
-
 		<!-- Sidebar -->
 			<section id="sidebar">
+				<!-- <iframe src="https://open.spotify.com/embed/track/6WoyghnMAvDDRbZfFbpwEo" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
 					<nav>
 						<ul>
 							<li><a href="/home">Welcome to Boring-tine</a></li>
@@ -34,7 +34,7 @@
 							<li><a href="/ActivitySearch">Activity Search	</a></li>
 						</ul>
 					</nav>	
-					<!-- audio player -->
+					<!-- audio player
 					<div class="container-fluid">
 						<div class="glow">
 							<div class="text-container">
@@ -55,7 +55,8 @@
 								<button id="mute" onclick="mute()" class="btn"><i class="fa fa-volume-up"></i></button>
 							</div>
 						</div>
-					</div>
+					</div> -->
+					<iframe id= "player" src="" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 				</div>
 			</section>
 			<!-- Wrapper -->
@@ -92,6 +93,7 @@
 			<script src="{{url_for('static',filename = 'assets/js/util.js')}}"></script>
 			<script src="{{url_for('static',filename = 'assets/js/main.js')}}"></script>
 			<script src="{{url_for('static',filename = 'assets/js/audio.js')}}"></script>
+			<script src="{{url_for('static',filename = 'assets/js/SpotifyFrame.js')}}"></script>
 
 
 	</body>

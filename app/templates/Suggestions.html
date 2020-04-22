@@ -2,104 +2,134 @@
 {% block content %}
 
 <section class = "wrapper style1 fullscreen fade-up">
-    <div class = "inner">
-        <h2>
-            Welcome to  Activity Suggestions based on your Mood Quiz
-        </h2>
-        <div class="table-responsive" id = "music table">
-            <h3>Music Suggested</h3>
-            <table class="table">
-                <thead>
-                    <th>Rank</th>
-                    <th>Song Name</th>
-                    <th>Genre</th>
-                    <th>Artist</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Congratulations</td>
-                        <td>Rap</td>
-                        <td>Post Malone</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Paper cut </td>
-                        <td>EDM</td>
-                        <td>Zedd</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Lean wit Me </td>
-                        <td> Rap</td>
-                        <td>Juice WRLD</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class = "inner container-fluid">
+        {%if personalities%}
+            <h2>
+                Welcome to  Activity Suggestions based on your Mood Quiz  <br>
+            </h2>
+            <h3>your top personalities were: </h3>
+            {%for p in personalities%}
+                <div class="inner"> {{p}}</div>
+            {%endfor%}
+            <div class="table-responsive" id = "music table">
+                <h3>Music Suggested</h3>
+                <table class="table">
+                    <thead>
+                        <th>Song Name</th>
+                        <th>Artist</th>
+                        <th>Genre</th>
+                        <th>play song</th>
+                    </thead>
+                    <tbody>
+                        {%for song in songs%}
+                            <tr>
+                                <td>{{song["title"]}}</td>
+                                <td>{{song["artist"]}}</td>
+                                <td>{{song["genre"]}}</td>
+                                <td><a onclick="setSong('{{song["uri"]}}')" class="button"> play it!</a></td>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+                <br>
+            </div>
+            <!-- rando activities table -->
+            <div class="table-responsive" id = "random">
+                <h3>Random Activities</h3>
+                <table class="table">
+                    <thead>
+                        <th>Rank</th>
+                        <th>Activity</th>
+                        <th>Cost $</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Karaoke</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Monopoly Game</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Dog Walk</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <br>
-        </div>
-        <!-- rando activities table -->
-        <div class="table-responsive" id = "random">
-            <h3>Random Activities</h3>
-            <table class="table">
-                <thead>
-                    <th>Rank</th>
-                    <th>Activity</th>
-                    <th>Cost $</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Karaoke</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Monopoly Game</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Dog Walk</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <br>
-        <!-- Books table  -->
-        <div class="table-responsive" id = "books">
-
-            <h3>Suggested Book Readings</h3>
-            <table class="table">
-                <thead>
-                    <th>Rank</th>
-                    <th>Book Name</th>
-                    <th>Author</th>
-                    <th>Genre</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Book Name 1</td>
-                        <td>Random Author 1 </td>
-                        <td>Horror</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Book Name 2</td>
-                        <td>Random Author 2</td>
-                        <td>Comedy</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Book Name 3</td>
-                        <td>Random Author 3</td>
-                        <td>Drama</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <!-- Books table  -->
+            <div class="table-responsive" id = "books-shelf">
+    
+                <h3>Suggested Book Readings</h3>
+                <table class="table">
+                    <thead>
+                        <th>Book Tittle</th>
+                        <th>Author(s)</th>
+                        <th>Genre</th>
+                        <th>Description</th>
+                        <th>Book Link</th>
+                    </thead>
+                    <tbody>
+                        {%for book in books%}
+                        <tr>
+                            <td>{{book["title"]}}</td>
+                            <td>
+                                {%for author in book["authors"]%}
+                                    {{author}},
+                                {%endfor%}
+                            </td>
+                            <td>{{book["genre"][0]}}</td>
+                            <td>{{book["overview"]}}</td>
+                            <td><a href="{{book['link']}}" target="_blank" class="button scrolly">Read me!</a></td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+                <!-- movies table -->
+                <div class="table-responsive" id = "movies-shelf">
+    
+                    <h3>Suggested Movies</h3>
+                    <table class="table">
+                        <thead>
+                            <th>Movie Title</th>
+                            <th>Genre(s)</th>
+                            <th>Overview</th>
+                            <th>Rating</th>
+                        </thead>
+                        <tbody>
+                            {%for movie in movies%}
+                            <tr>
+                                <td>{{movie["Title"]}}</td>
+                                <td>
+                                    {%for genre in movie["Genres"]%}
+                                        {{genre}},
+                                    {%endfor%}
+                                </td>
+                                <td>{{movie["Overview"]}}</td>
+                                <td>{{movie["Rating"]}}</td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+            </div>
+        {%else%}
+            <div class="container-fluid">
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <a href="/MoodQuiz" class = "button scrolly ">Take personality quiz for Suggestions</a>
+                    </div>  
+                    <div class = "p-2 text-justify">or</div>
+                    <div>
+                        <a href="/Explore" class = "button scrolly">Discover Activities</a>
+                    </div>  
+                </div>
+            </div>
+        {% endif %}
     </div>
 </section>
-{% endblock content %}
+{% endblock content %}     

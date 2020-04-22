@@ -31,7 +31,7 @@ class MoodQuizForm(FlaskForm):
     
     question1 = SelectField(u'Q1. I view myself as enthusiastic, extraverted:', choices=options)
     question2 =  SelectField(u'Q2. I am quarrelsome, critical:', choices=options)
-    question3 = SelectField(u'Q3. I am dependable, self disciplined1:', choices=options)
+    question3 = SelectField(u'Q3. I am dependable, self disciplined:', choices=options)
     question4 =  SelectField(u'Q4. I am anxious or easily upset:', choices=options)
     
     question5 = SelectField(u'Q5. I am open to new experiences, complex:', choices=options)
@@ -40,10 +40,5 @@ class MoodQuizForm(FlaskForm):
     question8 =  SelectField(u'Q8. I am disorganized, careless:', choices=options)
     question9 = SelectField(u'Q9. I am calm, emotionally stable:', choices=options)
     question10 =  SelectField(u'Q10. I am conventional, uncreative:', choices=options)
-    name =  StringField('Name', validators=[InputRequired()])
-    mood = SelectField(label='Mood', choices=moodOptions)
-    age = IntegerField('Age',validators=[InputRequired()])
-    gender = StringField('Gender',validators=[InputRequired()])
-    interests = StringField('Interests',validators=[InputRequired()])
     submit = SubmitField('Submit')
     questions = [question1,question2,question3,question4,question5,question6,question7,question8,question9,question10]

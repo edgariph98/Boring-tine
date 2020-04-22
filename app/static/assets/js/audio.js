@@ -1,8 +1,9 @@
-var song = new Audio;
+var song = new Audio('https://www.bensound.com/bensound-music/bensound-summer.mp3');
 var muted = false;
 var vol = 1;
 song.type = 'audio/mpeg';
-song.src = 'https://www.bensound.com/bensound-music/bensound-summer.mp3';//Audio file source url
+//song.src = 'https://www.bensound.com/bensound-music/bensound-summer.mp3';//Audio file source url
+//song.src = 
 
 function skip(time) {
 	if (time == 'back') {

@@ -85,7 +85,7 @@ def create_app():
                 movies = mf.getMovies([movieGenre],8)
                 ExploreActivities = True
             if(exerciseCategory != "None"):
-                exercises = getExercises(exerciseCategory,8)
+                exercises = getExercises(exerciseCategory,5)
                 ExploreActivities = True
             
             if not ExploreActivities:

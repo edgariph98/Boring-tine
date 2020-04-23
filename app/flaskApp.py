@@ -94,9 +94,9 @@ def create_app():
             return render_template('Suggestions.html', explore = ExploreActivities,activities = activities, movies = movies, songs = songs, books = books, exercises=exercises)
         return render_template('Explore.html', form = form)
 
-    @app.route('/Suggestions', methods= ['GET', 'POST'])
-    def Suggestions():
-        return render_template("Suggestions.html")
+    # @app.route('/Suggestions', methods= ['GET', 'POST'])
+    # def Suggestions():
+    #     return render_template("Suggestions.html")
 
     return app
 if  __name__ == "__main__":

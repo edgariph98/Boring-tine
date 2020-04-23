@@ -31,34 +31,12 @@
 							<li><a href="/MoodQuiz">Activity Suggestion Quiz</a></li>
 							<li><a href="/Explore">Explore Activities</a></li>
 							<li><a href="/Suggestions">Suggested Activities</a></li>
-							<li><a href="/ActivitySearch">Activity Search	</a></li>
+							<li><a href="/Workout">Workout Search	</a></li>
 						</ul>
 					</nav>	
-					<!-- audio player
-					<div class="container-fluid">
-						<div class="glow">
-							<div class="text-container">
-								<span class="responsive-font">Song Name: Name</span>
-								<br>
-								<span class="text">Author: Author</span>
-								<div class="btn-group inner responsive-width">
-									<button onclick="skip('back')" class="btn responsive-height"><i class="fas fa-arrow-circle-left"></i></button>
-									<button onclick="playpause()" class="btn"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
-									<button onclick="stop()" class="btn"><i class="fa fa-stop"></i></button>
-									<button onclick="skip('fwd')" class="btn"><i class="fas fa-arrow-circle-right"></i></button>
-								</div>
-								<div class="seekbar">
-									<br>
-									<input  type="range" oninput="setPos(this.value)" id="seek" value="0" max="">
-									<br>
-								</div>
-								<button id="mute" onclick="mute()" class="btn"><i class="fa fa-volume-up"></i></button>
-							</div>
-						</div>
-					</div> -->
 					<iframe id= "player" src="" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 				</div>
-			</section>
+			</section>	
 			<!-- Wrapper -->
 			<div id="wrapper">
 				{% with messages = get_flashed_messages(with_categories=true) %}

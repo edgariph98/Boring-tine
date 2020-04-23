@@ -3,119 +3,135 @@
 
 <section class = "wrapper style1 fullscreen fade-up">
     <div class = "inner container-fluid">
-        {%if personalities%}
+        {%if personalities or explore%}
             <h2>
-                Welcome to  Activity Suggestions based on your Mood Quiz  <br>
+                Welcome to  Activity Suggestions 
+                based on your 
+                {%if personalities%}
+                    personality test <br>
+                    <h3>your top personalities were: </h3>
+                    {%for p in personalities%}
+                        <div class="inner"> {{p}}</div>
+                    {%endfor%}
+                {%elif explore%}
+                    explore search <br>
+                {%endif%}
             </h2>
-            <h3>your top personalities were: </h3>
-            {%for p in personalities%}
-                <div class="inner"> {{p}}</div>
-            {%endfor%}
-            <div class="table-responsive" id = "music table">
-                <h3>Music Suggested</h3>
-                <table class="table">
-                    <thead>
-                        <th>Song Name</th>
-                        <th>Artist</th>
-                        <th>Genre</th>
-                        <th>play song</th>
-                    </thead>
-                    <tbody>
-                        {%for song in songs%}
-                            <tr>
-                                <td>{{song["title"]}}</td>
-                                <td>{{song["artist"]}}</td>
-                                <td>{{song["genre"]}}</td>
-                                <td><a onclick="setSong('{{song["uri"]}}')" class="button"> play it!</a></td>
-                            </tr>
-                        {%endfor%}
-                    </tbody>
-                </table>
-                <br>
-            </div>
-            <!-- rando activities table -->
-            <div class="table-responsive" id = "random">
-                <h3>Random Activities</h3>
-                <table class="table">
-                    <thead>
-                        <th>Rank</th>
-                        <th>Activity</th>
-                        <th>Cost $</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Karaoke</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Monopoly Game</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Dog Walk</td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <!-- Books table  -->
-            <div class="table-responsive" id = "books-shelf">
-    
-                <h3>Suggested Book Readings</h3>
-                <table class="table">
-                    <thead>
-                        <th>Book Tittle</th>
-                        <th>Author(s)</th>
-                        <th>Genre</th>
-                        <th>Description</th>
-                        <th>Book Link</th>
-                    </thead>
-                    <tbody>
-                        {%for book in books%}
-                        <tr>
-                            <td>{{book["title"]}}</td>
-                            <td>
-                                {%for author in book["authors"]%}
-                                    {{author}},
-                                {%endfor%}
-                            </td>
-                            <td>{{book["genre"][0]}}</td>
-                            <td>{{book["overview"]}}</td>
-                            <td><a href="{{book['link']}}" target="_blank" class="button scrolly">Read me!</a></td>
-                        </tr>
-                        {%endfor%}
-                    </tbody>
-                </table>
-                <!-- movies table -->
-                <div class="table-responsive" id = "movies-shelf">
-    
-                    <h3>Suggested Movies</h3>
+            {%if songs%}
+                <div class="table-responsive" id = "music table">
+                    <h3>Music Suggested</h3>
                     <table class="table">
                         <thead>
-                            <th>Movie Title</th>
-                            <th>Genre(s)</th>
-                            <th>Overview</th>
-                            <th>Rating</th>
+                            <th>Song Name</th>
+                            <th>Artist</th>
+                            <th>Genre</th>
+                            <th>play song</th>
                         </thead>
                         <tbody>
-                            {%for movie in movies%}
+                            {%for song in songs%}
+                                <tr>
+                                    <td>{{song["title"]}}</td>
+                                    <td>{{song["artist"]}}</td>
+                                    <td>{{song["genre"]}}</td>
+                                    <td><a onclick="setSong('{{song["uri"]}}')" class="button"> play it!</a></td>
+                                </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            {%endif%}
+                <!-- rando activities table -->
+            {%if activities%}
+                <div class="table-responsive" id = "random">
+                    <h3>Random Activities</h3>
+                    <table class="table">
+                        <thead>
+                            <th>Activity</th>
+                            <th>Type</th>
+                            <th>Cost $</th>
+                            <th>Link</th>
+                        </thead>
+                        <tbody>
+                            {%for activity in activities%}
+                                <tr>
+                                    <td>{{activity["Activity"]}}</td>
+                                    <td>{{activity["Type"]}}</td>
+                                    <td>{{activity["Price"]}}</td>
+                                    <td>
+                                        {%if activity["Link"] == "None"%}
+                                            None
+                                        {%else%}
+                                            <a href="{{activity['link']}}" target= "_blank" class = "button scrolly">Link to activity</a>
+                                        {%endif%}
+                                    </td>
+                                </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+    
+            {%endif%}
+            <br>
+            <!-- Books table  -->
+            {%if books%}
+                <div class="table-responsive" id = "books-shelf">
+        
+                    <h3>Suggested Book Readings</h3>
+                    <table class="table">
+                        <thead>
+                            <th>Book Tittle</th>
+                            <th>Author(s)</th>
+                            <th>Genre</th>
+                            <th>Description</th>
+                            <th>Book Link</th>
+                        </thead>
+                        <tbody>
+                            {%for book in books%}
                             <tr>
-                                <td>{{movie["Title"]}}</td>
+                                <td>{{book["title"]}}</td>
                                 <td>
-                                    {%for genre in movie["Genres"]%}
-                                        {{genre}},
+                                    {%for author in book["authors"]%}
+                                        {{author}},
                                     {%endfor%}
                                 </td>
-                                <td>{{movie["Overview"]}}</td>
-                                <td>{{movie["Rating"]}}</td>
+                                <td>{{book["genre"][0]}}</td>
+                                <td>{{book["overview"]}}</td>
+                                <td><a href="{{book['link']}}" target="_blank" class="button scrolly">Read me!</a></td>
                             </tr>
                             {%endfor%}
                         </tbody>
                     </table>
+                {%endif%}
+                <!-- movies table -->
+                {%if movies%}
+                    <div class="table-responsive" id = "movies-shelf">
+        
+                        <h3>Suggested Movies</h3>
+                        <table class="table">
+                            <thead>
+                                <th>Movie Title</th>
+                                <th>Genre(s)</th>
+                                <th>Overview</th>
+                                <th>Rating</th>
+                            </thead>
+                            <tbody>
+                                {%for movie in movies%}
+                                <tr>
+                                    <td>{{movie["Title"]}}</td>
+                                    <td>
+                                        {%for genre in movie["Genres"]%}
+                                            {{genre}},
+                                        {%endfor%}
+                                    </td>
+                                    <td>{{movie["Overview"]}}</td>
+                                    <td>{{movie["Rating"]}}</td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                {%endif%}
             </div>
         {%else%}
             <div class="container-fluid">

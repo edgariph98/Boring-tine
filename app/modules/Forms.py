@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm, Form
-from wtforms import StringField, SubmitField, SelectField, IntegerField, SelectMultipleField
+from wtforms import StringField, SubmitField, SelectField, IntegerField, SelectMultipleField, BooleanField
 from wtforms.validators import DataRequired, Length, InputRequired
 #helper functions
 #gets the questions from a form
@@ -42,3 +42,15 @@ class MoodQuizForm(FlaskForm):
     question10 =  SelectField(u'Q10. I am conventional, uncreative:', choices=options)
     submit = SubmitField('Submit')
     questions = [question1,question2,question3,question4,question5,question6,question7,question8,question9,question10]
+
+
+class ActivitySearchForm(FlaskForm):
+    musicGenres = [("None", "-Music Genre-"),("Alternative Rock","Alternative Rock"), ("Pop","Pop"),("Rap","Rap"),("Hip Hop","Hip Hop")]
+    movieGenres = [("None","-Movie Genre-"),("Action","Action"),("Comedy","Comedy"),("Adventure","Adventure")]
+    bookGenres = [("None", "-Book Subject/Genre-"),("Poetry","Poetry"),("Fiction","Fiction")]
+
+    bookGenre = SelectField("Select a book subject/genre",choices=bookGenres)
+    musicGenre = SelectField("Select A Music Genre",choices=musicGenres)
+    movieGenre = SelectField("Select a MOvie Genre", choices=movieGenres)
+    activitiesCheckbox = BooleanField("Search Random Activities",default=True)
+    submit = SubmitField("Search your activities!!")

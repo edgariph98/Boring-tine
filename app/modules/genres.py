@@ -46,7 +46,7 @@ def getBookGenres(personality):
         returnArray[1] = "Science Fiction"
 
     elif personality == "Agreeable":
-        returnArray[0] = "Non-Fiction"
+        returnArray[0] = "nonfiction"
         returnArray[1] = "History"
 
     elif personality == "Conscientious":

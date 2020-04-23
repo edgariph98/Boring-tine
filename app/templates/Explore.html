@@ -2,40 +2,42 @@
 {% block content %}
 <section id="Explore" class="wrapper style1 fade-up fullscreen">
     <div class="inner">
-        <h2>Discover Activities</h2>
-        <p>DIscover different types of activities you can do while inside the comfort of your home.</p>
-        <div class="features">
-            <section>
-                <h3>Music</h3>
-                <p>Discover Music that you will enjoy and will keep you going.</p>
-                <a class="button scrolly"  href="/ActivitySearch"   >Discover Music</a>
-            </section>
-            <section>
-                <h3>Movies/Shows</h3>
-                <p>Discover movies or shows, that can keep you entertained while inside home.</p>
-                <a class="button scrolly" href="/ActivitySearch">Discover new Movies and Shows</a>
-            </section>
-            <section>
-                <h3>Home Workouts </h3>
-                <p>Discover fitness plans as workouts to do at home.</p>
-                <a class="button scrolly"  href="/ActivitySearch">Discover Home-Workout Plans</a>
-            </section>
-            <section>
-                <h3>Nutrition Plans</h3>
-                <p>Discover Nutrition Plans to stay Fit while inside.</p>
-                <a class="button scrolly" href="/ActivitySearch">Discover Nutrition Plans</a>
-            </section>
-            <section>
-                <h3>Random Activities</h3>
-                <p>Discover Random activities if you are bored</p>
-                <a class="button scrolly" href="/ActivitySearch">Discover Random Activities</a>
-            </section>
-            <section>
-                <h3>Books/Readings</h3>
-                <p>Discover new books and readings that will get you hooked.</p>
-                <a class="button scrolly"  href="/ActivitySearch">Discover Books and Readings</a>
-            </section>
-        </div>
+        <form method="post" action="">
+            {{ form.hidden_tag() }} 
+            <h2>Discover Activities</h2>
+            <p>DIscover different types of activities you can do while inside the comfort of your home.</p>
+            <div class="features form-group">
+                <section>
+                    <h3>Music</h3>
+                    <p>Discover Music that you will enjoy and will keep you going. <br> Choose a genre of your choice!!</p>
+                    {{form.musicGenre}}
+                </section>
+                <section>   
+                    <h3>Movies/Shows</h3>
+                    <p>Discover movies or shows, that can keep you entertained while inside home.</p>
+                    {{form.movieGenre}}
+                </section>
+                <section>
+                    <h3>Random Activities</h3>
+                    <p>Discover Random activities if you are bored</p> 
+                    <input type="checkbox" name = "activityCheckbox"id="randomActivities" name="randomActivities">
+                    <label for="randomActivities">Check here if you want random activities</label><br>
+                </section>
+                <section>
+                    <h3>Books/Readings</h3>
+                    <p>Discover new books and readings that will get you hooked.</p>
+                    {{form.bookGenre}}
+                </section>
+                <section>
+                    <h3>Home Workouts </h3>
+                    <p>Discover fitness plans as workouts to do at home.</p>
+                    <a href="/Workout" class="button scrolly">Check out Workout exercises</a>
+                </section>
+                <section>
+                    {{form.submit}}
+                </section>
+            </div>
+        </form>
     </div>
 </section>
 {% endblock content %}

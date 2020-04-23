@@ -10,3 +10,5 @@ from .bookRequests import *
 from .movieRequest import * 
 #music
 from .music import *
+#random activities
+from .bored import *

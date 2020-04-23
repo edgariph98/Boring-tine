@@ -17,8 +17,38 @@
                     explore search <br>
                 {%endif%}
             </h2>
+            <ul class="actions">
+
+                {%if songs%}
+                    <li>
+                        <a href="#music" class="button scrolly">View Songs</a>
+                    </li>
+                {%endif%}
+                {%if activities%}
+                    <li>
+                        <a href="#random" class="button scrolly">View Activities</a>
+                    </li>
+                {%endif%}
+                {%if books%}
+                    <li>
+                        <a href="#book-shelf" class="button scrolly">View Books</a>
+                    </li>
+                {%endif%}
+                {%if movies%}
+                    <li>
+                        <a href="#movies-shelf" class="button scrolly">View Movies</a>
+                    </li>
+                {%endif%}
+                {%if exercises%}
+                    <li>
+                        <a href="#exercises-shelf" class="button scrolly">View Exercises</a>
+                    </li>
+                {%endif%}
+
+                
+            </ul>
             {%if songs%}
-                <div class="table-responsive" id = "music table">
+                <div class="table-responsive" id = "music">
                     <h3>Music Suggested</h3>
                     <table class="table">
                         <thead>
@@ -126,6 +156,28 @@
                                     </td>
                                     <td>{{movie["Overview"]}}</td>
                                     <td>{{movie["Rating"]}}</td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                {%endif%}
+                {%if exercises%}
+                    <div class="table-responsive" id = "exercises-shelf">
+                
+                        <h3>Suggested Exercises</h3>
+                        <table class="table">
+                            <thead>
+                                <th>Exercise Name</th>
+                                <th>Description</th>
+                            </thead>
+                            <tbody>
+                                {%for exercise in exercises%}
+                                <tr>
+                                    <td>{{exercise["name"]}}</td>
+                                    <td [innerHtml] = '{{exercise["description"]}}'>
+                                        {{exercise["description"]|safe}}
+                                    </td>
                                 </tr>
                                 {%endfor%}
                             </tbody>

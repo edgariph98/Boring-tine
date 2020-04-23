@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_bootstrap import Bootstrap
 import json
-from .modules import personality_test, MoodQuizForm, questionsValidation, getQuestions, questionData, getNthMovieGenres, getNthMusicGenres, getNthBookGenres, getPersonality, getAllBooks, MovieFinder, getAllSongs, ActivitySearchForm, Bored
+from .modules import personality_test, MoodQuizForm, questionsValidation, getQuestions, questionData, getNthMovieGenres, getNthMusicGenres, getNthBookGenres, getPersonality, getAllBooks, MovieFinder, getAllSongs, ActivitySearchForm, Bored, getExercises
 
 def create_app():
     app = Flask(__name__)
@@ -63,9 +63,11 @@ def create_app():
             songs = None
             books = None
             movies = None
+            exercises = None
             musicGenre = form.musicGenre.data
             movieGenre = form.movieGenre.data
             bookGenre  = form.bookGenre.data
+            exerciseCategory = form.exerciseCategory.data
             
             #checking if user wants random activities
             if(request.form.get("activityCheckbox") == "on"):
@@ -82,17 +84,19 @@ def create_app():
             if(movieGenre != "None"):
                 movies = mf.getMovies([movieGenre],8)
                 ExploreActivities = True
-            return render_template('Suggestions.html', explore = ExploreActivities,activities = activities, movies = movies, songs = songs, books = books)
+            if(exerciseCategory != "None"):
+                exercises = getExercises(exerciseCategory,8)
+                ExploreActivities = True
+            
+            if not ExploreActivities:
+                flash("Please select at least one of the given options in the form","danger")
+                return render_template("Explore.html", form = form)
+            return render_template('Suggestions.html', explore = ExploreActivities,activities = activities, movies = movies, songs = songs, books = books, exercises=exercises)
         return render_template('Explore.html', form = form)
 
     @app.route('/Suggestions', methods= ['GET', 'POST'])
     def Suggestions():
         return render_template("Suggestions.html")
-
-    @app.route('/Workout', methods=['GET','POST'])
-    def Workout():
-        form =None
-        return render_template('Workout.html',form = form)
 
     return app
 if  __name__ == "__main__":

@@ -12,3 +12,5 @@ from .movieRequest import *
 from .music import *
 #random activities
 from .bored import *
+#workout excercises
+from .workout import getExercises
